@@ -1,0 +1,328 @@
+<?php header("Content-type: text/css; charset: UTF-8");
+//http://css-tricks.com/snippets/php/intelligent-php-cache-control/
+
+//get the last-modified-date of this very file
+$lastModified=filemtime(__FILE__);
+//get a unique hash of this file (etag)
+$etagFile = md5_file(__FILE__);
+//get the HTTP_IF_MODIFIED_SINCE header if set
+$ifModifiedSince=(isset($_SERVER['HTTP_IF_MODIFIED_SINCE']) ? $_SERVER['HTTP_IF_MODIFIED_SINCE'] : false);
+//get the HTTP_IF_NONE_MATCH header if set (etag: unique file hash)
+$etagHeader=(isset($_SERVER['HTTP_IF_NONE_MATCH']) ? trim($_SERVER['HTTP_IF_NONE_MATCH']) : false);
+
+//set last-modified header
+header("Last-Modified: ".gmdate("D, d M Y H:i:s", $lastModified)." GMT");
+//set etag-header
+header("Etag: $etagFile");
+//make sure caching is turned on
+header('Cache-Control: public');
+
+//check if page has changed. If not, send 304 and exit
+if (@strtotime($_SERVER['HTTP_IF_MODIFIED_SINCE'])==$lastModified || $etagHeader == $etagFile)
+{
+       header("HTTP/1.1 304 Not Modified");
+       exit;
+}
+
+echo "/* This page was last modified: ".date("d.m.Y H:i:s",time()) . "*/";
+
+//your normal php code
+  $nav_margin = 20;
+  $nav_width = 200;
+  $nav_total_size = $nav_margin * 2 + $nav_width;
+  $page_body_width = 580;
+?>
+
+
+/* All */
+#htmlBody {
+  margin: 0;
+}
+
+a {
+  color:inherit;
+}
+
+#pageBackground {
+/*   background-image:url("../resources/pageResources/hammock.jpg");
+  background-image:url("../resources/pageResources/mayan.jpg");
+  background-image:url("../resources/pageResources/jungle.jpg"); */
+  background-image:url("../resources/pageResources/jungle_crop.jpg");
+  background-size:cover;
+  background-repeat:no-repeat;
+  background-position: bottom;
+  
+  position:fixed;
+  top:0px;
+  left:0px;
+  
+  width:100%;
+  height:100%;
+  
+  z-index:-1;
+}
+
+/* Navigation */
+#pageMenuWrapper{
+  /*need to put into a wrapper?*/
+  /* margin-left:40px; */
+  margin-left:<?= $nav_margin ?>px;
+  /*margin-top:20px;*/
+  
+  position:fixed;
+  top:0px;
+  display:inline-block;
+  
+  width:<?= $nav_width ?>px;
+  
+}
+#pageMenu {
+  color:#fff;
+  background:#000;
+
+  border-left: 2px solid #555;
+  border-right: 2px solid #555;
+}
+#pageMenuBottom {
+  background-image:url("../resources/pageResources/nav_bottom.svg");
+  background-size:cover;
+  background-repeat:no-repeat;
+  width:<?= $nav_width ?>px;
+  height:63px;
+  background-color:transparent;
+}
+#pageMenuTitle {
+  padding-top:15px;
+  margin-bottom:15px;
+  margin-left:auto;
+  margin-right:auto;
+
+  text-align:center;
+}
+#pageMenuTitle h2{
+  font-family: 'Lovers Quarrel', cursive;
+  font-size:3em;
+  margin:0px;
+  margin-bottom:-12px;
+}
+#pageMenuTitle h4{
+  font-family: 'Amatic SC', sans-serif;
+  font-size:2.5em;
+  margin:0px;
+  /*font-style:italic;*/
+}
+#pageMenuLogo {
+  /* center */
+  margin-left:auto;
+  margin-right:auto;
+  /* border formatting */
+  width:142px;
+  height:142px;
+  border:7px solid #aaa;
+  
+  margin-top:20px;
+  margin-bottom:20px;
+}
+#pageMenuLogo img {
+  padding:7px;
+}
+#pageMenuNav {
+}
+#pageMenuNav a{
+  text-decoration:none;
+  
+  display:block; /* making each <a> into a block element causes the :hover to apply when the mouse in within the whole box around the text, not just on the text */
+}
+#pageMenuNav a:hover, #pageMenuNav .currentPage{
+  color:#eee;
+}
+#pageMenuNav a:hover img{
+  -webkit-filter: brightness(2.25);
+  filter: brightness(2.25);
+}
+#pageMenuNav a:hover aside, #pageMenuNav .currentPage aside{
+  color:#ccc;
+}
+#pageMenuNav ul {
+  list-style:none;
+  padding-top:0px;
+  padding-left:10%;
+  padding-right:10%;
+  margin-bottom:0px;
+  padding-bottom:10px;
+}
+#pageMenuNav ul li{
+  font-family:'Oxygen', sans-serif;
+  color:#888;
+  font-weight:700;
+  
+  width:100%;
+  
+  padding-top:0.5em;
+  padding-bottom:0.5em;
+  
+  border-top:1px solid #888;
+}
+#pageMenuNav ul li aside{
+  font-size:0.7em;
+  font-style:italic;
+  color:#666;
+}
+#pageMenuNav ul li:last-child {
+  border-bottom:1px solid #888;
+}
+
+
+
+/* Main Page */
+#pageBody {
+  /*might need to be in a wrapper*/
+  min-height:100%;
+  margin-left:<?= $nav_total_size ?>px;
+  
+  position:relative;
+  display:inline-block;
+  /* margin-top:8px; */
+  overflow:auto;
+  padding:15px 50px 30px 50px;
+
+  /* width:780px; */
+  width:<?= $page_body_width ?>px;
+  
+  border-left: 2px solid #555;
+  border-right: 2px solid #555;
+  border-bottom: 2px solid #555;
+
+  color:#fff;
+  background:#000;
+}
+#pageBodyTitle {
+  font-family: 'Quattrocento', serif;
+  font-weight:700;
+  margin-bottom:32px;
+}
+#pageBodyTitle h1 {
+  border-bottom: 1px solid #888;
+}
+#pageBodyContent h2{
+  font-family: 'Quattrocento', serif;
+  font-weight:700;
+  font-size:1.25em;
+}
+#pageBodyContent {
+  font-family:'Oxygen', sans-serif;
+}
+#pageBodyContent p {
+  
+}
+
+/* Footer */
+#pageEnd{
+  margin-top:40px;
+}
+#pageEnd p {
+  font-size:0.5em;
+}
+
+/* Admin Pages */
+#adminPageEdit tr {
+  border-bottom: 1px solid #888;
+}
+#adminPageEdit td {
+  padding: 2px;
+}
+#adminPageEdit textarea {
+  width: 100%;
+}
+#adminPageEdit #pageContent {
+  height: 400px;
+}
+#adminPageEdit #useFancyBoxGallery {
+  margin-left: 10px;
+}
+
+/* Photo Galleries in Articles */
+figure
+{
+  border: 1px #aaa solid;
+  background-color: #aaa;
+  color: #333;
+  
+  padding: 5px;
+  margin: 3px 10px;
+  
+  text-align: center;
+  font-family: 'Quattrocento', serif;
+  font-size: 0.8em;
+}
+figure.float_left
+{
+  float: left;
+  margin-left: 0px;
+  /*-webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;*/
+}
+figure.float_right
+{
+  float: right;
+  margin-right: 0px;
+}
+figure.image
+{
+  width: 200px;
+}
+figcaption
+{
+  text-align: center;
+  font-family: 'Quattrocento', serif;
+  /*font-size: 0.8em;*/
+}
+figure a
+{
+  border-bottom: 0px;
+}
+
+#wedding_pictures td
+{
+  text-align: center;
+  
+  line-height: 0px;
+  
+  background-color: #222;
+}
+#wedding_pictures img
+{
+  max-height: <?= (($page_body_width - 14) / 3.0) * (133.0 / 200) ?>px;
+  max-width:<?= ($page_body_width - 14) / 3.0 ?>px;
+}
+
+
+
+
+#pageMapContainer
+{
+  position: fixed;
+  z-index: 10;
+}
+
+
+/* Scratch Space */
+
+/* form input{
+  color:black;
+}
+
+form textarea{
+  color:black;
+} */
+
+.errorMessage {
+  color:red;
+}
+
+.DEBUG_NOTE {
+  display:none;
+  font-size:0.6em;
+  font-family:sans-serif;
+  color:orange;
+}

@@ -1,0 +1,5 @@
+<?php // A static file (to keep admin information secret) which mimics the style in of the <nav> element in "_headerTail.inc" ?>
+
+<li><a href="admin.php?action=listPages"><img src="resources/pageResources/lock_closed.png" width="15px" height="15px" style="-webkit-filter: invert(100%);filter: invert(100%);" /> list pages<aside>all our stuff!</aside></a></li>
+<li><a href="admin.php?action=newPage"><img src="resources/pageResources/lock_closed.png" width="15px" height="15px" style="-webkit-filter: invert(100%);filter: invert(100%);" /> new page<aside>the act of creation</aside></a></li>
+<li><a href="admin.php?action=logout"><img src="resources/pageResources/lock_closed.png" width="15px" height="15px" style="-webkit-filter: invert(100%);filter: invert(100%);" /> logout<aside>goodbye</aside></a></li>

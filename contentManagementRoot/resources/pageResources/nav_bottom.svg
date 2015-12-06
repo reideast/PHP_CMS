@@ -1,0 +1,9 @@
+<svg width="200" height="63" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+ <g>
+  <title>Layer 1</title>
+  <path id="svg_1" d="m 0 0 L 200 0 L 100 60 z" stroke-width="0" stroke="#555555" fill="#000000"/>
+  <line stroke="#555555" id="svg_2" y2="60" x2="100" y1="0" x1="0" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="null" stroke-width="2" fill="none"/>
+  <line stroke="#555555" id="svg_3" x1="100" y1="60" x2="200" y2="0" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="null" stroke-width="2" fill="none"/>
+ </g>
+</svg>

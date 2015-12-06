@@ -1,0 +1,9 @@
+Options +FollowSymlinks
+Options -Multiviews
+
+RewriteEngine on
+RewriteBase /
+# RewriteRule ^test/([^/]+)/?$ getPage.php?pageID=$1
+RewriteRule ^(\w+)$ getPage.php?pageID=$1 [L]
+
+DirectoryIndex getPage.php?pageID=index
