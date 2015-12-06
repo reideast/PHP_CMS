@@ -5,25 +5,23 @@ Background: This is a PHP program to manage a simple, flat web site. Logins and 
 
 
 
-*******************************  Files of Interest  ***************************
+## Files of Interest ##
 
-Retrieve pages from database:
-  getPage.php - pulls page by name from database to display, combining _header.inc, _footer.inc, and code from database
-  classPage.inc - my attempt at object-oriented PHP, this class retrieves, saves, and deletes pages from the database
-  .htaccess - uses mod_rewrite to translate "pageTitle" into "getPage.php?pageID=pageTitle" (unseen by website visitors)
-
-HTML/CSS Template:
-  _headerHead.inc, _headerTail.inc, _footer.inc - PHP pages to display HTML from template
-  css/main.css - CSS for template (uses an .htaccess rule to allow PHP variables in CSS; has smart caching to avoid stale files)
-  resources/pageResources/ - image files for template found here
-
-Content Management:
-  admin.php - a single page to list/edit/create pages in the CMS
-  _adminEditPage.inc, _adminListpages.inc, _adminLoginForm.inc - stub files separated from admin.php to display requested admin function
+* Retrieve pages from database:
+ * getPage.php - pulls page by name from database to display, combining _header.inc, _footer.inc, and code from database
+ * classPage.inc - my attempt at object-oriented PHP, this class retrieves, saves, and deletes pages from the database
+ * .htaccess - uses mod_rewrite to translate "pageTitle" into "getPage.php?pageID=pageTitle" (unseen by website visitors)
+* HTML/CSS Template:
+ * _headerHead.inc, _headerTail.inc, _footer.inc - PHP pages to display HTML from template
+ * css/main.css - CSS for template (uses an .htaccess rule to allow PHP variables in CSS; has smart caching to avoid stale files)
+ * resources/pageResources/ - image files for template found here
+*Content Management:
+ * admin.php - a single page to list/edit/create pages in the CMS
+ * _adminEditPage.inc, _adminListpages.inc, _adminLoginForm.inc - stub files separated from admin.php to display requested admin function
 
   
   
-*******************************  How to Use  *******************************
+## How to Use ##
 
 Place both folder on web server
 Direct web domain to: contentManagementRoot/
