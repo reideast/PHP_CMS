@@ -1,6 +1,9 @@
 Name:    PHP_CMS
+
 Author:  Andrew Reid East
+
 Background: This is a PHP program to manage a simple, flat web site. Logins and database access are hard coded in separate files and unencrypted, and overall page security has not been evaluated. The HTML/CSS template is not set up to be easily modified, but can be changed just by editing header/footer PHP files and the stylesheet.
+
 
 ## Files of Interest ##
 
