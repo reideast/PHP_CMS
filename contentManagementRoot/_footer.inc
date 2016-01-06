@@ -2,7 +2,7 @@
     </section>
     
     <footer id="pageEnd">
-      <p>Copyright &copy; 2015 Andrew East &bull; Design from King Size by Denoizzed</p>
+      <p>Copyright &copy; 2016 Andrew East &bull; Design from King Size by Denoizzed</p>
     </footer>
   
   </section>

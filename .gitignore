@@ -1,0 +1,5 @@
+#gitignore by Andrew Reid East
+#do not commit user configuration files with database details
+
+contentManagementInclude/adminInfo.inc
+contentManagementInclude/dbdata.inc
